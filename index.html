@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <meta charset="utf-8" />
+
+  <title>Метод експертної оцінки. | Lab4 - Datsyshyn Roman</title>
+
+  <script src="https://unpkg.com/mathjs@7.3.0/dist/math.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+  <script src="./main.js"></script>
+</head>
+
+<body>
+
+
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-10">
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              №
+            </p>
+
+            <p id="data" class="form-control col-4 text-center alert-secondary">
+              Параметр
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              Вага
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              А
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              Б
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              В
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              Г
+            </p>
+
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              Д
+            </p>
+          </div>
+
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              1
+            </p>
+            <p id="data" class="form-control col-4 text-center">
+              Віддаль між містами            </p>
+            <input type="text" id="weight_1" value="0.2" style="text-transform: uppercase"
+              class="form-control col-1 text-center alert-secondary" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input1_1" value="9" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input2_1" value="6" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input3_1" value="10" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input4_1" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input5_1" value="7" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+          </div>
+
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              2
+            </p>
+            <p id="data" class="form-control col-4 text-center">
+              Місткість
+            </p>
+            <input type="text" id="weight_2" value="0.25" style="text-transform: uppercase"
+              class="form-control col-1 text-center alert-secondary" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input1_2" value="7" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input2_2" value="10" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input3_2" value="10" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input4_2" value="6" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input5_2" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+          </div>
+
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              3
+            </p>
+            <p id="data" class="form-control col-4 text-center">
+              Витрата палива V
+            </p>
+            <input type="text" id="weight_3" value="0.15" style="text-transform: uppercase"
+              class="form-control col-1 text-center alert-secondary" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input1_3" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input2_3" value="7" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input3_3" value="9" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input4_3" value="9" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input5_3" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+          </div>
+
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              4
+            </p>
+            <p id="data" class="form-control col-4 text-center">
+              Зручність
+            </p>
+            <input type="text" id="weight_4" value="0.15" style="text-transform: uppercase"
+              class="form-control col-1 text-center alert-secondary" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input1_4" value="10" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input2_4" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input3_4" value="9" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input4_4" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input5_4" value="7" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+          </div>
+
+          <div class="input-group input-group-lg">
+            <p id="data" class="form-control col-1 text-center alert-secondary">
+              5
+            </p>
+            <p id="data" class="form-control col-4 text-center">
+              Вартість експлуатації
+            </p>
+            <input type="text" id="weight_5" value="0.25" style="text-transform: uppercase"
+              class="form-control col-1 text-center alert-secondary" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input1_5" value="6" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input2_5" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input3_5" value="9" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input4_5" value="10" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+            <input type="text" id="input5_5" value="8" style="text-transform: uppercase"
+              class="form-control col-1 text-center" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-lg" />
+          </div>
+
+          <button type="button" onclick="showResults()" class="btn btn-success mt-2 col-11 btn-block h-45">
+            Результат
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-4" id="tableContainer"></section>
+
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
